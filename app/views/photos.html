@@ -1,0 +1,12 @@
+<div ng-init="photos.getUrl()"></div>
+
+<div id="nytimes-articles" > </div>
+
+<div>
+	 	<h4> Total photo from album {{photos.allPhotos.length}} </h4>
+	 <ul >
+	  <li  ng-repeat="objphoto in photos.allPhotos">
+	    <p>album id  : {{objphoto.id}}</p>
+	    
+	  </li>
+</ul>

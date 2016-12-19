@@ -1,0 +1,40 @@
+<h1>Album : {{album.albums.length}} </h1>
+
+<!--
+<div class="col-md-12">
+  <div ng-repeat="item in album.albums">
+    <div ng-class="{'clearfix': $index%2 === 0}"></div>
+    <div class="col-md-6">{{item.name}}</div>
+  </div>
+</div>
+
+
+<ul>
+	 <h4> Total albums {{album.albums.length}} </h4>
+	 <ul >
+	  <li  ng-repeat="obj in album.albums">
+	  	<input type="button" value="{{obj.name}}" ng-click="album.photosInAlbum(obj.id)">{{obj.name}}  {{obj.id}}</input>
+	 </li>
+</ul>
+
+
+<div ng-repeat="items in album.split_items" class="row">
+    <div ng-repeat="item in items" class="col-md-4">
+        item
+    </div>
+</div>
+-->
+{{album.listt}}
+<div ng-repeat="item in album.albums">
+	<div ng-class="{'clearfix': $index%2 === 0}"></div>
+	<div class="item  col-xs-5 col-lg-5">
+		<div class="thumbnail">
+	                <img  id='+{{item.id}}+' ng-src="http://placehold.it/400x250/000/fff" alt="" />
+	                <div >
+	                    <h4 class="group inner list-group-item-heading">
+	                        {{item.name}}</h4>
+	                </div>
+	                <input type="button" value="{{item.name}}" ng-click="album.photosInAlbum(item.id)"></input>
+		</div>
+	</div>
+</div>
