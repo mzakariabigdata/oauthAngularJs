@@ -1,5 +1,5 @@
 # Features done
-1- Sign in by Facebook account
+1- Sign in by Facebook account\n
 2- Albums are displayed as Grid list of albums (2 albums per row)
 3- Once the user taps on any album, selected albums are loaded and the user can choose one or many photos, Result are paginated, when user finishes confirms message appears.
 
