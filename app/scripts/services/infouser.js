@@ -10,6 +10,22 @@ angular.module('oauthAngularJsApp')
   .service('infoUser', function () {
   	var nameUser = {walo : "", url:[]} ;
     var urlPhotosAlbum = [];
+    var idInfo = [];
+    var i_id=0;
+
+
+    this.getIDAlbum = function(){
+      console.log('id size = ' +console.log(idInfo.length));
+        for (var i = 0; i < idInfo.length; i++) {
+                  console.log('URL' + idInfo[i]);
+
+                  }
+      return idInfo;
+    }
+
+    this.setIDAlbum = function(id){
+    idInfo.push(id);
+    }
 
     this.setInfoUser = function(name){
     	nameUser.walo= name;

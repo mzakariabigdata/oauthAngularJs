@@ -8,57 +8,84 @@
  * Controller of the oauthAngularJsApp
  */
 angular.module('oauthAngularJsApp')
-  .controller('PhotosCtrl', ['$state', 'infoPhotos', 'returnAllPicture',function ($state, infoPhotos, returnAllPicture) {
-    
-   //this.allPhotos = infoPhotos.getInfoPhotos()[0];
-   //this.allUrlPhotos = returnAllPicture.getInfoAlbum();
-   	//console.log('salam = ' +infoPhotos.getlistUrlPhoto());
-   	//this.walo1 = infoPhotos.getlistUrlPhoto();
-	//console.log(infoPhotos.getlistUrlPhoto()[2]);
-    //console.log(infoPhotos.getInfoPhotos()[1]);
-    //console.log('fffffffffffffffffffffffffffffffffffffffffffff'+infoPhotos.getlistUrlPhoto());
-    //var listUrlPhoto = [];
-	//console.log('Data photos '+ infoPhotos.getInfoPhotos());
-	
-	//getUrlPhotos();
-	//this.UrlPhotos = listUrlPhoto;
+  .controller('PhotosCtrl', ['$state', 'infoPhotos','$http', 'returnAllPicture',function ($state, infoPhotos, $http,returnAllPicture) {
 
-		var $nytElem = $('#nytimes-articles');
-		this.allPhotos = infoPhotos.getInfoPhotos()[0];
-		this.allUrlPhotos = returnAllPicture.getInfoAlbum();
-	this.getUrl = function(){
-		var pas;
-								for (var i = 0; i < infoPhotos.getInfoPhotos()[0].length; i++) {
-									//if (i==response.data.length-1) {$state.go('photos');}
-									//console.log(response.data.id);
-							    		FB.api(
-											// "/me/photos", function (response) {
-									    ""+this.allPhotos[i].id+"/picture", function (response) {
-										      if (response && !response.error) {
-										      			//vm = 'hello';
-														//console.log(response.data.url);
-														//this.walo = response.data.url;
-														$nytElem.append('<p>Photo '+[i]+':  '+response.data.url+'</p>');
-														//console.log('list tp =='+listUrlPhoto.length);
-														//infoPhotos.setlistUrlPhoto(vm);
-													}
-									    });
-						    	}
+	this.allPhotos = infoPhotos.getInfoPhotos()[0];
+
+	var allPhotoss = []
+	if (infoPhotos.getInfoPhotos()[0] !== undefined ) {
+		allPhotoss = infoPhotos.getInfoPhotos()[0];
 	}
-/*
-		var $nytElem = $('#nytimes-articles');
-		
-		console.log('Get Url');
-		//this.walo = 'Get Url';
-		/*
-		var nytimesUrl = ""+this.allPhotos[0].id+"/picture"
 
-                    $.getJSON(nytimesUrl, function(response){ 
-                       
-                            articles = response.data.url;
-                            $nytElem.append('<h1>Init :  '+articles+'</h1>');
-                        
-                    })
-*/
+    this.download = function() {
+      $http.get('https://unsplash.it/200/300', {
+          responseType: "arraybuffer"
+        })
+        .success(function(data) {
+          var anchor = angular.element('<a/>');
+          var blob = new Blob([data]);
+          anchor.attr({
+            href: window.URL.createObjectURL(blob),
+            target: '_blank',
+            download: 'fileName.png'
+          })[0].click();
+        })
+    };
+	
+	$(document).ready(function () {
+	var external = $("#external");
+	external.click();
+	external.click(function(){
+	    $("#gallery > img").unbind("click").click(function () {
+	        $(this).toggleClass("selected");
+	    });
+	    $("#reset").click(function () {
+	        $("input").val("");
+	        $("img.selected").removeClass("selected");
+	    });
+	    
+	});
+	});
 
+	$("#create").click(function () {
+	        var txt = "Have all desired images been selected?";
+	        var conf = confirm(txt);
+	        if (!conf) return false;
+
+	        if ($("img.selected").length == 0) {
+	            alert("Select at least 1 image");
+	            return false;
+	        }
+	        //$("#galleryHeader").append($title, $title2).show();
+	        //$("#form").hide();
+	        //$("img").off("click");
+	        //$("img:not(.selected)").hide();
+	        //$("img.selected").removeClass("selected");
+	        console.log($("img.selected") );
+	    });
+	this.getUrl = function() {  
+		if (allPhotoss.length == 0) $state.go('login');
+        for (var key in allPhotoss) {
+            	//console.log(allAlbum[key].id);
+            	var urlAlbum = fbUserAlbumURL(allPhotoss[key].id);
+            	urlAlbum(function(model, info){
+            		//console.log( info +' : '+ model);
+            		$("#"+info).prop("src", model).width(196).height(196);
+            		
+            	});
+			}
+	};
+
+	function fbUserAlbumURL(info){
+		 return function (callback) {
+					FB.api(
+					    "/"+info+"/picture",
+					    function (response) {
+					      if (response && !response.error) {
+					        callback(response.data.url, info);
+					      }
+					    }
+					);
+				};
+  	};
   }]);

@@ -1,0 +1,17 @@
+http://wiki.openstreetmap.org/wiki/FR:Osmosis
+http://nominatim.openstreetmap.org/details.php?place_id=159410301
+http://openrouteservice.org/
+http://wiki.openstreetmap.org/wiki/Xapi
+https://help.openstreetmap.org/questions/46469/finding-a-node-or-a-way-on-openstreetmap
+http://stackoverflow.com/questions/24442483/how-to-get-the-city-and-country-of-an-osm-node-or-way
+http://wiki.openstreetmap.org/wiki/Nominatim/FAQ#of_a_Building_.2F_Amenity_.2F_House
+https://developer.mapquest.com/documentation/open/nominatim-search/reverse/
+http://nominatim.openstreetmap.org/reverse?format=xml&osm_type=N&osm_id=1207098527
+https://gist.githubusercontent.com/anonymous/5e29ce69e99981828c03/raw/f9b1174cb40f50a99e5c608dfeda89a6c2e8f6f3/map.geojson
+https://fr.wikipedia.org/wiki/Keyhole_Markup_Language
+http://wiki.openstreetmap.org/wiki/Osmosis/Polygon_Filter_File_Format
+https://help.openstreetmap.org/questions/8273/how-do-i-extract-the-polygon-of-an-administrative-boundary
+http://svn.openstreetmap.org/applications/utils/gary68/boundaries.pl
+http://stackoverflow.com/questions/17139638/running-perl-scripts-from-a-file-in-linux
+https://en.wikipedia.org/wiki/Web_mapping
+http://wiki.openstreetmap.org/wiki/FR:Nominatim/Installation

@@ -24,17 +24,18 @@
     </div>
 </div>
 -->
-{{album.listt}}
+
+<div id="album">{{album.listt}}</div>
 <div ng-repeat="item in album.albums">
 	<div ng-class="{'clearfix': $index%2 === 0}"></div>
 	<div class="item  col-xs-5 col-lg-5">
 		<div class="thumbnail">
-	                <img  id='+{{item.id}}+' ng-src="http://placehold.it/400x250/000/fff" alt="" />
+	                <img  id="{{item.id}}" data-img-src="http://placehold.it/400x250/000/fff" value="{{item.id}}" alt="" />
 	                <div >
 	                    <h4 class="group inner list-group-item-heading">
 	                        {{item.name}}</h4>
 	                </div>
-	                <input type="button" value="{{item.name}}" ng-click="album.photosInAlbum(item.id)"></input>
+	                <input type="button" value="Select" ng-click="album.photosInAlbum(item.id)"></input>
 		</div>
 	</div>
 </div>

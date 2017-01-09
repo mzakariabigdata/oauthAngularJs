@@ -20,6 +20,7 @@ angular.module('oauthAngularJsApp')
    }
 
     this.getInfoAlbum = function(){
+      //console.log(urlPhotosAlbum);
       return urlPhotosAlbum ;
     }
 

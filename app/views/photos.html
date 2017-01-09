@@ -1,7 +1,5 @@
 <div ng-init="photos.getUrl()"></div>
-
-<div id="nytimes-articles" > </div>
-
+<!--
 <div>
 	 	<h4> Total photo from album {{photos.allPhotos.length}} </h4>
 	 <ul >
@@ -10,3 +8,31 @@
 	    
 	  </li>
 </ul>
+-->
+    <button id="create" ">telecharger</button>
+    <button id="reset">Reset</button>
+</div>
+<div id="galleryHeader"></div>
+<div id="external">
+<div id="internal">
+<div ng-repeat="item in photos.allPhotos">
+<div  class="item  col-xs-5 col-lg-5">
+		<div class="thumbnail" id="gallery">
+		<div id="gallery" >
+		    <img id="{{item.id}}" src="http://placehold.it/400x250/000/fff" alt="" />
+		</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<!--
+<div ng-repeat="item in photos.allPhotos">
+	<!--<div ng-class="{'clearfix': $index%4 === 0}"></div>--><!--
+	<div  class="item  col-xs-5 col-lg-5">
+		<div class="thumbnail" id="gallery">
+		<img id="{{item.id}}" src="http://placehold.it/400x250/000/fff" alt="" />
+		</div>
+	</div>
+</div>
+-->

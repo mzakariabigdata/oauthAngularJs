@@ -1,3 +1,7 @@
 <h1>Facebook Login</h1>
 <input type="button" ng-click="main.onFBLogin()"  value="Login" style="width: 80px; height: 40px" />
-</div>
+<label>
+  <input type="checkbox" ng-init='item.questID=false' ng-model="main.answers[item.questID]" 
+     ng-change="main.stateChanged(item.questID)">
+  you want this app to view you album.
+</label>

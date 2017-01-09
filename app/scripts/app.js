@@ -26,6 +26,12 @@ angular
   	templateUrl: 'views/login.html',
   	controller : 'MainCtrl as main'
   }
+  var logoutState = {
+    name : 'logout',
+    url: '/logout',
+    templateUrl: 'views/logout.html',
+    controller : 'IndexCtrl as index'
+  }
   var albumState = {
   	name : 'album',
   	url: '/album',
@@ -42,6 +48,7 @@ angular
 
   $stateProvider.state(homeState);
   $stateProvider.state(loginState);
+  $stateProvider.state(logoutState);
   $stateProvider.state(albumState);
   $stateProvider.state(photosState);
 
